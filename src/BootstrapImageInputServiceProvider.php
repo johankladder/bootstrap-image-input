@@ -16,8 +16,8 @@ class BootstrapImageInputServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/views', 'bootstrap-image-input');
 
         $this->publishes([
-            __DIR__.'/public' => public_path('js/'),
-        ], 'public');
+            __DIR__.'/public' => resource_path('/bootstrap-image-input'),
+        ], 'resources');
     }
 
     /**
