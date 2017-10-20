@@ -78,6 +78,8 @@
                     src: image[imageSrcKey]
                 })
             }
+            console.log(this.images);
+            debugger;
         }
     }
 </script>
