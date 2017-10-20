@@ -8,3 +8,4 @@ window.Vue = require('vue');
 
 Vue.component('bootstrap-image-input', require('./components/ImageSelector.vue'));
 Vue.component('selected-image', require('./components/SelectorImage.vue'));
+Vue.component('selected-image-container', require('./components/SelectedImageContainer.vue'));

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img v-bind:src="src" class="selector-image"/>
+        <img v-bind:src="src" class="center-image selected-image"/>
     </div>
 </template>
 

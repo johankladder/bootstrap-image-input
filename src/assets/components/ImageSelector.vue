@@ -5,12 +5,10 @@
                 {{labelvalue}}
             </label>
             <div class="image-selected">
-                <div v-for="item in this.images" class="col-md-4">
-                    <div class="panel panel-default" style="height: 100%;">
-                        <div class="panel-body">
-                            <selected-image v-bind:src=item.src></selected-image>
-                        </div>
-                    </div>
+                <div v-for="item in this.images" class="col-md-2">
+                    <selected-image-container
+                        v-bind:src="item.src"
+                    ></selected-image-container>
                 </div>
             </div>
             <input name='files[]' multiple data-buttonbefore="true" class="form-control filestyle" id="input-id"
