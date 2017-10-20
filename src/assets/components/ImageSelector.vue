@@ -24,6 +24,7 @@
 <script>
 
     import SelectorImage from './SelectorImage.vue'
+
     export default {
 
         props: [
