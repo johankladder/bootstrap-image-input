@@ -5,7 +5,7 @@
         </div>
         <div class="panel-footer">
             <button v-on:click="remove" type="button" class="btn btn-danger btn-block">
-                Delete
+                {{this.$parent.deletelabel}}
             </button>
         </div>
     </div>
