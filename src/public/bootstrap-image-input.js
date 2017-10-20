@@ -10467,6 +10467,8 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SelectorImage_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SelectorImage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__SelectorImage_vue__);
 //
 //
 //
@@ -10490,11 +10492,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     props: ['imagedata', 'labelvalue', 'imagesrckey'],
+
+    components: {
+        'selected-image': __WEBPACK_IMPORTED_MODULE_0__SelectorImage_vue___default.a
+    },
 
     computed: {
         computedImageData: function computedImageData() {

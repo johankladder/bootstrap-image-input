@@ -23,6 +23,7 @@
 
 <script>
 
+    import SelectorImage from './SelectorImage.vue'
     export default {
 
         props: [
@@ -30,6 +31,10 @@
             'labelvalue',
             'imagesrckey'
         ],
+
+        components: {
+            'selected-image': SelectorImage
+        },
 
         computed: {
             computedImageData: function () {
