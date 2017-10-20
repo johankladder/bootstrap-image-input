@@ -14,7 +14,8 @@ class BootstrapImageInput
     static $OBLIGATED_OPTIONS = [
         'data',
         'image-key',
-        'label'
+        'label',
+        'delete-label'
     ];
 
     private $options;

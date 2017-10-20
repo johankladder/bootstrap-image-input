@@ -13,5 +13,6 @@
             labelvalue="{{$options['label']}}"
             imagesrckey="{{$options['image-key']}}"
             imagedata="{{json_encode($options['data'])}}"
+            deletelabel="{{$options['delete-label']}}"
     ></bootstrap-image-input>
 </div>

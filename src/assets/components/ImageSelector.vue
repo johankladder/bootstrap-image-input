@@ -5,7 +5,7 @@
                 {{labelvalue}}
             </label>
             <div class="image-selected">
-                <div v-for="item in this.images" class="col-md-2">
+                <div v-for="item in this.images" class="col-md-3">
                     <selected-image-container
                         v-bind:src="item.src"
                     ></selected-image-container>
@@ -26,7 +26,8 @@
         props: [
             'imagedata',
             'labelvalue',
-            'imagesrckey'
+            'imagesrckey',
+            'deletelabel'
         ],
 
         computed: {
