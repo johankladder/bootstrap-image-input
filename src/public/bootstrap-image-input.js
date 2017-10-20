@@ -10536,8 +10536,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -10608,9 +10606,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['src']
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 /* 11 */
@@ -10620,9 +10616,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("img", { staticClass: "selector-image", attrs: { src: _vm.src } })
-  ])
+  return _c("div", [_vm._v("\n    moi\n")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -10650,29 +10644,16 @@ var render = function() {
         [_vm._v("\n            " + _vm._s(_vm.labelvalue) + "\n        ")]
       ),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "image-selected" },
-        _vm._l(_vm.images, function(item) {
-          return _c("div", { staticClass: "col-md-4" }, [
-            _c(
-              "div",
-              {
-                staticClass: "panel panel-default",
-                staticStyle: { height: "100%" }
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "panel-body" },
-                  [_c("selected-image", { attrs: { src: item.src } })],
-                  1
-                )
-              ]
-            )
-          ])
-        })
-      ),
+      _c("div", { staticClass: "image-selected" }, [
+        _c(
+          "div",
+          {
+            staticClass: "panel panel-default",
+            staticStyle: { height: "100%" }
+          },
+          [_c("div", { staticClass: "panel-body" }, [_c("selected-image")], 1)]
+        )
+      ]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control filestyle",
