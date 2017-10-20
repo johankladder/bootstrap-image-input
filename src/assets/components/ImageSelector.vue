@@ -15,7 +15,7 @@
             </div>
             <input name='files[]' multiple data-buttonbefore="true" class="form-control filestyle" id="input-id"
                    type="file"
-                   data-preview-file-type="text" v-on:change="this.handleInput(event)">
+                   data-preview-file-type="text" v-on:change="handleInput">
         </div>
     </div>
 </template>

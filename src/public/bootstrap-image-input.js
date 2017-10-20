@@ -10457,10 +10457,6 @@ window.Vue = __webpack_require__(3);
 Vue.component('bootstrap-image-input', __webpack_require__(8));
 Vue.component('selected-image', __webpack_require__(4));
 
-var m = new Vue({
-  el: '#bootstrap-image-input'
-});
-
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -10676,11 +10672,7 @@ var render = function() {
           type: "file",
           "data-preview-file-type": "text"
         },
-        on: {
-          change: function($event) {
-            this.handleInput(_vm.event)
-          }
-        }
+        on: { change: _vm.handleInput }
       })
     ])
   ])
