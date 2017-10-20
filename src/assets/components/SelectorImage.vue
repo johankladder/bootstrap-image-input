@@ -1,6 +1,6 @@
 <template>
     <div>
-        moi
+        <img v-bind:src="src" class="selector-image"/>
     </div>
 </template>
 

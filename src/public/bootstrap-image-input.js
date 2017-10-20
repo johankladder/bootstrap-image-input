@@ -10536,6 +10536,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -10592,6 +10594,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 src: image[imageSrcKey]
             });
         }
+        console.log('test');
         console.log(this.images);
         debugger;
     }
@@ -10620,7 +10623,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    moi\n")])
+  return _c("div", [
+    _c("img", { staticClass: "selector-image", attrs: { src: _vm.src } })
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -10648,16 +10653,29 @@ var render = function() {
         [_vm._v("\n            " + _vm._s(_vm.labelvalue) + "\n        ")]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "image-selected" }, [
-        _c(
-          "div",
-          {
-            staticClass: "panel panel-default",
-            staticStyle: { height: "100%" }
-          },
-          [_c("div", { staticClass: "panel-body" }, [_c("selected-image")], 1)]
-        )
-      ]),
+      _c(
+        "div",
+        { staticClass: "image-selected" },
+        _vm._l(this.images, function(item) {
+          return _c("div", { staticClass: "col-md-4" }, [
+            _c(
+              "div",
+              {
+                staticClass: "panel panel-default",
+                staticStyle: { height: "100%" }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "panel-body" },
+                  [_c("selected-image", { attrs: { src: item.src } })],
+                  1
+                )
+              ]
+            )
+          ])
+        })
+      ),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control filestyle",
@@ -10669,7 +10687,7 @@ var render = function() {
           type: "file",
           "data-preview-file-type": "text"
         },
-        on: { change: _vm.handleInput }
+        on: { change: this.handleInput }
       })
     ])
   ])

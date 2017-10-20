@@ -5,15 +5,17 @@
                 {{labelvalue}}
             </label>
             <div class="image-selected">
+                <div v-for="item in this.images" class="col-md-4">
                     <div class="panel panel-default" style="height: 100%;">
                         <div class="panel-body">
-                            <selected-image></selected-image>
+                            <selected-image v-bind:src=item.src></selected-image>
                         </div>
                     </div>
+                </div>
             </div>
             <input name='files[]' multiple data-buttonbefore="true" class="form-control filestyle" id="input-id"
                    type="file"
-                   data-preview-file-type="text" v-on:change="handleInput">
+                   data-preview-file-type="text" v-on:change="this.handleInput">
         </div>
     </div>
 </template>
@@ -78,6 +80,7 @@
                     src: image[imageSrcKey]
                 })
             }
+            console.log('test');
             console.log(this.images);
             debugger;
         }
