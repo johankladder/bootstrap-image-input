@@ -1,13 +1,77 @@
 <template>
     <div class="image-selector-container">
-            lolololo
+        <div class="form-group">
+            <label for="input-id" class="control-label">
+                {{labelvalue}}
+            </label>
+            <div class="image-selected">
+                <div v-for="item in images" class="col-md-4">
+                    <div class="panel panel-default" style="height: 100%;">
+                        <div class="panel-body">
+                            <selected-image v-bind:src=item.src></selected-image>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input name='files[]' multiple data-buttonbefore="true" class="form-control filestyle" id="input-id"
+                   type="file"
+                   data-preview-file-type="text" v-on:change="handleInput">
+        </div>
     </div>
 </template>
 
+
 <script>
+
     export default {
+
+        props: [
+            'imagedata',
+            'labelvalue',
+            'imagesrckey'
+        ],
+
+        computed: {
+            computedImageData: function () {
+                if (this.imagedata != null) {
+                    return JSON.parse(this.imagedata);
+                }
+
+                return [];
+            },
+            computedImageSrcKey: function () {
+                if (this.imagesrckey != null) {
+                    return this.imagesrckey;
+                }
+                return 'src';
+            }
+        },
+
+        data() {
+            return {
+                images: []
+            }
+        },
+
+        methods: {
+            handleInput: function (event) {
+                for (let fileIndex = 0; fileIndex < event.target.files.length; fileIndex++) {
+                    const file = event.target.files[fileIndex];
+                    const src = URL.createObjectURL(file);
+                    this.images.push({src: src});
+                }
+            },
+
+        },
+
         mounted() {
-            console.log('From selector')
+            for (let imageData = 0; imageData < this.computedImageData.length; imageData++) {
+                const image = this.computedImageData[imageData];
+                const imageSrcKey = this.computedImageSrcKey;
+                this.images.push({
+                    src: image[imageSrcKey]
+                })
+            }
         }
     }
 </script>

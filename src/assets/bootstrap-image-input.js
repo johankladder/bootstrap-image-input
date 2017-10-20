@@ -7,8 +7,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('bootstrap-image-input', require('./components/ImageSelector.vue'));
+Vue.component('selected-image', require('./components/SelectorImage.vue'));
 
-console.log('moi');
 const app = new Vue({
     el: '#bootstrap-image-input'
 });
