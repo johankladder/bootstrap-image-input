@@ -15,15 +15,13 @@
             </div>
             <input name='files[]' multiple data-buttonbefore="true" class="form-control filestyle" id="input-id"
                    type="file"
-                   data-preview-file-type="text" v-on:change="this.handleInput">
+                   data-preview-file-type="text" v-on:change="this.handleInput(event)">
         </div>
     </div>
 </template>
 
 
 <script>
-
-    import SelectorImage from './SelectorImage.vue'
 
     export default {
 
@@ -33,10 +31,6 @@
             'imagesrckey'
         ],
 
-        components: {
-            'selected-image': SelectorImage
-        },
-
         computed: {
             computedImageData: function () {
                 if (this.imagedata != null) {
@@ -45,8 +39,8 @@
 
                 return [];
             },
-            computedImageSrcKey: function () {
-                if (this.imagesrckey != null) {
+            computedImageSrcKey: function() {
+                if(this.imagesrckey != null) {
                     return this.imagesrckey;
                 }
                 return 'src';
@@ -65,8 +59,6 @@
                     const file = event.target.files[fileIndex];
                     const src = URL.createObjectURL(file);
                     this.images.push({src: src});
-                    console.log(this.images);
-                    debugger;
                 }
             },
 
@@ -79,10 +71,8 @@
                 this.images.push({
                     src: image[imageSrcKey]
                 })
+
             }
-            console.log('test');
-            console.log(this.images);
-            debugger;
         }
     }
 </script>

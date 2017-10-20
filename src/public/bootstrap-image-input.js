@@ -10513,8 +10513,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SelectorImage_vue__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SelectorImage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__SelectorImage_vue__);
 //
 //
 //
@@ -10538,17 +10536,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     props: ['imagedata', 'labelvalue', 'imagesrckey'],
-
-    components: {
-        'selected-image': __WEBPACK_IMPORTED_MODULE_0__SelectorImage_vue___default.a
-    },
 
     computed: {
         computedImageData: function computedImageData() {
@@ -10579,8 +10571,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var file = event.target.files[fileIndex];
                 var src = URL.createObjectURL(file);
                 this.images.push({ src: src });
-                console.log(this.images);
-                debugger;
             }
         }
 
@@ -10594,9 +10584,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 src: image[imageSrcKey]
             });
         }
-        console.log('test');
-        console.log(this.images);
-        debugger;
     }
 });
 
@@ -10613,7 +10600,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['src']
+});
 
 /***/ }),
 /* 11 */
@@ -10687,7 +10676,11 @@ var render = function() {
           type: "file",
           "data-preview-file-type": "text"
         },
-        on: { change: this.handleInput }
+        on: {
+          change: function($event) {
+            this.handleInput(_vm.event)
+          }
+        }
       })
     ])
   ])
