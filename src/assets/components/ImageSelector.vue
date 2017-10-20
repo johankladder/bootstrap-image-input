@@ -2,12 +2,14 @@
     <div class="image-selector-container">
         <div class="form-group">
             <label for="input-id" class="control-label">
-                {{labelvalue}}
+                <div class="input-label">
+                    {{labelvalue}}
+                </div>
             </label>
             <div class="image-selected">
                 <div v-for="item in this.images" class="col-md-4">
                     <selected-image-container
-                        v-bind:src="item.src"
+                            v-bind:image="item"
                     ></selected-image-container>
                 </div>
             </div>
@@ -23,23 +25,18 @@
 
     export default {
 
-        props: [
-            'imagedata',
-            'labelvalue',
-            'imagesrckey',
-            'deletelabel'
-        ],
+        props: ['imagedata', 'labelvalue', 'imagesrckey', 'deletelabel'],
 
         computed: {
             computedImageData: function () {
-                if (this.imagedata != null) {
+                if (this.imagedata !== null) {
                     return JSON.parse(this.imagedata);
                 }
 
                 return [];
             },
-            computedImageSrcKey: function() {
-                if(this.imagesrckey != null) {
+            computedImageSrcKey: function () {
+                if (this.imagesrckey !== null) {
                     return this.imagesrckey;
                 }
                 return 'src';
@@ -48,11 +45,17 @@
 
         data() {
             return {
-                images: []
+                images: [] // Data storage for selected images
             }
         },
 
         methods: {
+
+            /**
+             * Function for handling adding files (in this case images) to the component. Because
+             * the image data field has a watcher, the new components will automatically render its
+             * content.
+             */
             handleInput: function (event) {
                 for (let fileIndex = 0; fileIndex < event.target.files.length; fileIndex++) {
                     const file = event.target.files[fileIndex];
@@ -63,6 +66,10 @@
 
         },
 
+        /**
+         * When mounted (initialized), make sure (if given) the images are showed on the grid. Otherwise
+         * show nothing.
+         */
         mounted() {
             for (let imageData = 0; imageData < this.computedImageData.length; imageData++) {
                 const image = this.computedImageData[imageData];
