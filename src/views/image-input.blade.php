@@ -6,7 +6,7 @@
 
 ?>
 
-<link rel="stylesheet" href="{{ URL::asset('bootstrap-image-input/css/style.css') }}"/>
+<link rel="stylesheet" href="{{ asset('bootstrap-image-input/css/style.css') }}"/>
 
 <div id="bootstrap-image-input">
     <bootstrap-image-input
