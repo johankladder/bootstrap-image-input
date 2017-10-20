@@ -1,16 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: johankladder
- * Date: 20-10-17
- * Time: 12:41
- */
 
 namespace JohanKladder\BootstrapImageInput;
 
 class BootstrapImageInput
 {
 
+    /**
+     * The obligated options for this entity.
+     *
+     * @var array
+     */
     static $OBLIGATED_OPTIONS = [
         'data',
         'image-key',
@@ -18,9 +17,20 @@ class BootstrapImageInput
         'delete-label'
     ];
 
+    /**
+     * Storage for the options.
+     *
+     * @var array
+     */
     private $options;
 
 
+    /**
+     * Creates an Entity instance and render it's view.
+     *
+     * @param array $options
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public static function create(array $options = [])
     {
         $input = new BootstrapImageInput($options);
@@ -44,7 +54,7 @@ class BootstrapImageInput
         }
     }
 
-    public function render()
+    private function render()
     {
         return view('bootstrap-image-input::image-input', [
             'options' => $this->options

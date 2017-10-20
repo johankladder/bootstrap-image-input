@@ -1,13 +1,16 @@
 <?php
 
 /**
- * @var array $options
+ * @var array $options This array contains all the options that are given
+ * in the constructor of this entity.
  */
 
 ?>
 
+<!-- Require the stylesheet: -->
 <link rel="stylesheet" href="{{ asset('bootstrap-image-input/css/style.css') }}"/>
 
+<!-- Start rendering vue component: -->
 <div id="bootstrap-image-input">
     <bootstrap-image-input
             labelvalue="{{$options['label']}}"
