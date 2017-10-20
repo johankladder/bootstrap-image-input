@@ -63,6 +63,8 @@
                     const file = event.target.files[fileIndex];
                     const src = URL.createObjectURL(file);
                     this.images.push({src: src});
+                    console.log(this.images);
+                    debugger;
                 }
             },
 

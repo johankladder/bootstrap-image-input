@@ -10577,6 +10577,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var file = event.target.files[fileIndex];
                 var src = URL.createObjectURL(file);
                 this.images.push({ src: src });
+                console.log(this.images);
+                debugger;
             }
         }
 
