@@ -23,7 +23,7 @@
                     'src',
                     this.src
                 );
-                this.$parent.images.splice(index)
+                this.$parent.images.splice(index,1)
             },
 
             findWithAttr: function (array, attr, value) {
