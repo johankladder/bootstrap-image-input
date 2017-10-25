@@ -22,10 +22,14 @@
                 const index = this.findWithAttr(
                     this.$parent.images,
                     'src',
-                    this.src
+                    this.image.src
                 );
+
                 this.$parent.images.splice(index, 1);
-                this.removeWithAjax(this.image)
+
+                if(this.image.data) {
+                    this.removeWithAjax(this.image)
+                }
             },
 
             removeWithAjax: function (image) {

@@ -17,6 +17,5 @@
         imagedata="{{json_encode($options['data'])}}"
         deletelabel="{{$options['delete-label']}}"
         deleteurl="{{$options['delete-url']}}"
-        deleteparams="{{json_encode($options['delete-params'])}}"
 ></bootstrap-image-input>
 

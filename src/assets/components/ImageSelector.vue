@@ -58,12 +58,36 @@
              */
             handleInput: function (event) {
                 this.images = [];
-                for (let fileIndex = 0; fileIndex < event.target.files.length; fileIndex++) {
-                    const file = event.target.files[fileIndex];
-                    const src = URL.createObjectURL(file);
-                    this.images.push({src: src});
-                }
+                this.fillComputedImages();
+                this.fillInputImages(event)
             },
+
+            fillInputImages: function (event) {
+                this.fillImages(event.target.files, function (image) {
+                    return URL.createObjectURL(image);
+                }, function () {
+                    return undefined;
+                })
+            },
+
+            fillComputedImages: function () {
+                const srcKey = this.computedImageSrcKey;
+                this.fillImages(this.computedImageData, function (image) {
+                    return image[srcKey];
+                }, function (image) {
+                    return image
+                })
+            },
+
+            fillImages: function (imageArray, getSrcCallback, getDataCallback) {
+                for (let imageData = 0; imageData < imageArray.length; imageData++) {
+                    const image = imageArray[imageData];
+                    this.images.push({
+                        src: getSrcCallback(image),
+                        data: getDataCallback(image)
+                    })
+                }
+            }
 
         },
 
@@ -74,14 +98,7 @@
         mounted() {
 
             // This procedure is only called when data is pre-given:
-            for (let imageData = 0; imageData < this.computedImageData.length; imageData++) {
-                const image = this.computedImageData[imageData];
-                const imageSrcKey = this.computedImageSrcKey;
-                this.images.push({
-                    src: image[imageSrcKey],
-                    data: image
-                })
-            }
+            this.fillComputedImages();
         }
     }
 </script>
