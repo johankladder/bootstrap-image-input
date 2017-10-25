@@ -14,7 +14,9 @@ class BootstrapImageInput
         'data',
         'image-key',
         'label',
-        'delete-label'
+        'delete-label',
+        'delete-url',
+        'delete-params'
     ];
 
     /**

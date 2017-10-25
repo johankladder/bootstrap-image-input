@@ -24,7 +24,21 @@
                     'src',
                     this.src
                 );
-                this.$parent.images.splice(index,1)
+                this.$parent.images.splice(index, 1);
+                this.removeWithAjax(this.image)
+            },
+
+            removeWithAjax: function (image) {
+
+                if (this.$parent.deleteurl && image.data) {
+                    $.ajax(this.$parent.deleteurl  + '/' + image.data.id, {
+                        type: 'DELETE',
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    })
+                }
             },
 
             findWithAttr: function (array, attr, value) {

@@ -25,7 +25,7 @@
 
     export default {
 
-        props: ['imagedata', 'labelvalue', 'imagesrckey', 'deletelabel'],
+        props: ['imagedata', 'labelvalue', 'imagesrckey', 'deletelabel', 'deleteurl'],
 
         computed: {
             computedImageData: function () {
@@ -57,6 +57,7 @@
              * content.
              */
             handleInput: function (event) {
+                this.images = [];
                 for (let fileIndex = 0; fileIndex < event.target.files.length; fileIndex++) {
                     const file = event.target.files[fileIndex];
                     const src = URL.createObjectURL(file);
@@ -71,13 +72,15 @@
          * show nothing.
          */
         mounted() {
+
+            // This procedure is only called when data is pre-given:
             for (let imageData = 0; imageData < this.computedImageData.length; imageData++) {
                 const image = this.computedImageData[imageData];
                 const imageSrcKey = this.computedImageSrcKey;
                 this.images.push({
-                    src: image[imageSrcKey]
+                    src: image[imageSrcKey],
+                    data: image
                 })
-
             }
         }
     }
